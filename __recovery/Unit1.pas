@@ -36,26 +36,27 @@ implementation
 
 function countNetto(sum, vat: double) : Double;
 begin
-  countNetto := sum*(1+(vat/100));
+countNetto := sum*(1+(vat/100))
 end;
 
 function countBrutto(sum, vat: double) :Double;
 begin
-  countBrutto := (sum/(100+vat))*100;
+  countBrutto := (sum/(100+vat))*100
+end;
+
+function count(sum, vat: double; toggleOn: boolean) : Double;
+begin
+   if toggleOn = true then
+   count := sum*(1+(vat/100))
+   else
+   count := (sum/(100+vat))*100
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-begin
   input := StrToFloat(InputTextField.Text);
   vatInput := StrToFloat(VatTextField.Text);
-
-  if vectorToggle.State = tssOn then
-begin
-    OutputLabel.Caption := FloatToStr(countNetto(input, vatInput));
-end  else
-    OutputLabel.Caption := FloatToStr(countBrutto(input, vatInput));
-end;
+  OutputLabel.Caption := FloatToStr(count(input, vatInput, true));
 end;
 
 procedure TForm1.VectorToggleClick(Sender: TObject);
