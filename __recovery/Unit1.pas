@@ -28,6 +28,7 @@ var
   input: Double;
   vatInput: Double;
   output: Double;
+  toggleOn: boolean;
 
 implementation
 
@@ -41,17 +42,23 @@ begin
    count := (sum/(100+vat))*100
 end;
 
+ procedure initVariables(sum, vat: TEdit; toggleSwitcher: TToggleSwitch);
+begin
+  input := StrToFloat(sum.Text);
+  vatInput := StrToFloat(vat.Text);
+  toggleOn := toggleSwitcher.IsOn;
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  input := StrToFloat(InputTextField.Text);
-  vatInput := StrToFloat(VatTextField.Text);
+  initVariables(InputTextField, VatTextField, vectorToggle);
   if vatInput <=0 then
   ShowMessage('VAT musi być liczbą dodatnią')
   else
   if vatInput <23 then
   ShowMessage('Stawka vatu jest niższa niż standardowe 23%')
   else
-  OutputLabel.Caption := FloatToStr(count(input, vatInput, vectorToggle.IsOn));
+  OutputLabel.Caption := FloatToStr(count(input, vatInput, toggleOn));
 end;
 
 procedure TForm1.VectorToggleClick(Sender: TObject);
