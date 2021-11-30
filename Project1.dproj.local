@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.219,C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Netto_brutto_both_sides\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.641,=C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.219,C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Netto_brutto_both_sides\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.904,C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\tomasz\Documents\Embarcadero\Studio\Projects\Netto_brutto_both_sides\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
