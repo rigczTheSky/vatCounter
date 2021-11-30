@@ -29,20 +29,9 @@ var
   vatInput: Double;
   output: Double;
 
-
 implementation
 
 {$R *.dfm}
-
-function countNetto(sum, vat: double) : Double;
-begin
-countNetto := sum*(1+(vat/100))
-end;
-
-function countBrutto(sum, vat: double) :Double;
-begin
-  countBrutto := (sum/(100+vat))*100
-end;
 
 function count(sum, vat: double; toggleOn: boolean) : Double;
 begin
@@ -56,14 +45,21 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   input := StrToFloat(InputTextField.Text);
   vatInput := StrToFloat(VatTextField.Text);
-  OutputLabel.Caption := FloatToStr(count(input, vatInput, true));
+  if vatInput <=0 then
+  ShowMessage('VAT musi być liczbą dodatnią')
+  else
+  if vatInput <23 then
+  ShowMessage('Stawka vatu jest niższa niż standardowe 23%')
+  else
+  OutputLabel.Caption := FloatToStr(count(input, vatInput, vectorToggle.IsOn));
 end;
 
 procedure TForm1.VectorToggleClick(Sender: TObject);
 begin
-          if vectorToggle.State = tssOn then
+          if vectorToggle.IsOn = true then
 VectorLabel.Caption := 'Netto na brutto:'
         else
 VectorLabel.Caption := 'Brutto na netto:';
 end;
+
 end.
